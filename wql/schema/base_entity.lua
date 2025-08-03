@@ -1,3 +1,4 @@
+local Builder = require("wql.core.builder")
 local BaseEntity
 do
   local _class_0
@@ -14,13 +15,30 @@ do
         error("Field " .. tostring(field) .. " not exist")
       end
       return self.fields[field].value
+    end,
+    set_mode = function(self, mode)
+      if not (Builder.MODES[mode]) then
+        error("Invalide mode: " .. tostring(mode))
+      end
+      self.mode = mode
+      return self
+    end,
+    get_mode = function(self, mode)
+      return self.mode or Builder.MODES.INSERT_ONLY
+    end,
+    build = function(self, where_conditions)
+      return Builder.build(self, where_conditions)
+    end,
+    to_sql = function(self, where_conditions)
+      return Builder.to_sql(self, where_conditions)
     end
   }
   _base_0.__index = _base_0
   _class_0 = setmetatable({
     __init = function(self)
       self.fields = { }
-      self.table_name = ""
+      self.table_name = nil
+      self.mode = nil
     end,
     __base = _base_0,
     __name = "BaseEntity"
