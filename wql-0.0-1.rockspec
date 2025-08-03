@@ -20,6 +20,7 @@ build = {
     
     -- Core
     ["wql.core.context"] = "wql/core/context.lua",
+    ["wql.core.builder"] = "wql/core/builder.lua",
 
     -- Schema
     ["wql.schema.base_entity"] = "wql/schema/base_entity.lua",

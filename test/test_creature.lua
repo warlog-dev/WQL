@@ -1,9 +1,16 @@
-local WQL = require("")
+--[[
+    Test 1: Create new simple creature
+]]--
 
-local creature_template = WQL.Context.CreatureTemplate(10)
+local WQL = require("wql")
 
-creature_template:set_name("WQL Creature " .. creature_template:get_entry())
-print(creature_template:get_name())
+local creature_template = WQL.Context.CreatureTemplate(19001)
+creature_template
+    :set_name("WQL creature")
+    :set_subname("Just a new vendor")
+    :set_level(10, 20)
+    :set_unit_class(1)
+    :set_faction(35)
+    :set_npcflag(NPC_FLAG.VENDOR.GENERIC)
 
-creature_template:set_type(10)
-print(creature_template:get_type())
+print(creature_template:to_sql())
