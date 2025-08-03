@@ -34,4 +34,10 @@ class BaseEntity
     to_sql: (where_conditions) =>
         return Builder.to_sql @, where_conditions
 
+    insert_only: () =>
+        return @set_mode "INSERT_ONLY"
+
+    update_only: () =>
+        return @set_mode "UPDATE_ONLY"
+
 return BaseEntity

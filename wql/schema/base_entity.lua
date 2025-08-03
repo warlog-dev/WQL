@@ -31,6 +31,12 @@ do
     end,
     to_sql = function(self, where_conditions)
       return Builder.to_sql(self, where_conditions)
+    end,
+    insert_only = function(self)
+      return self:set_mode("INSERT_ONLY")
+    end,
+    update_only = function(self)
+      return self:set_mode("UPDATE_ONLY")
     end
   }
   _base_0.__index = _base_0
