@@ -29,10 +29,10 @@ do
     end,
     set_speed = function(self, speed_type, speed_value)
       local _exp_0 = speed_type
-      if CT_SPEED_TYPE.WALK == _exp_0 then
-        self:SetSpeedWalk(speed_value)
-      elseif CT_SPEED_TYPE.RUN == _exp_0 then
-        self:SetSpeedRun(speed_value)
+      if SPEED_TYPE.WALK == _exp_0 then
+        self:set_speed_walk(speed_value)
+      elseif SPEED_TYPE.RUN == _exp_0 then
+        self:set_speed_run(speed_value)
       end
       return self
     end

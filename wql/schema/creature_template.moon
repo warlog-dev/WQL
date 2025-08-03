@@ -96,10 +96,10 @@ class CreatureTemplate extends BaseEntity
 
     set_speed: (speed_type, speed_value) =>
         switch speed_type
-            when CT_SPEED_TYPE.WALK
-                @\SetSpeedWalk speed_value
-            when CT_SPEED_TYPE.RUN
-                @\SetSpeedRun speed_value
+            when SPEED_TYPE.WALK
+                @\set_speed_walk speed_value
+            when SPEED_TYPE.RUN
+                @\set_speed_run speed_value
         return @
 
 return CreatureTemplate
