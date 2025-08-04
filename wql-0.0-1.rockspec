@@ -1,7 +1,7 @@
 package = "wql"
 version = "0.0-1"
 source = {
-  url = "./",
+  url = "git://github.com/warlog-dev/WQL",
   tag = "v0.1"
 }
 description = {
@@ -12,6 +12,7 @@ description = {
 }
 dependencies = {
   -- "luasql-mysql >= 2.0"
+  "lua >= 5.1"
 }
 build = {
   type = "builtin",
