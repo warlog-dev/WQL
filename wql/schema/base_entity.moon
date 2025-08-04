@@ -34,10 +34,23 @@ class BaseEntity
     to_sql: (where_conditions) =>
         return Builder.to_sql @, where_conditions
 
-    insert_only: () =>
+    insert_only: =>
         return @set_mode "INSERT_ONLY"
 
-    update_only: () =>
+    update_only: =>
         return @set_mode "UPDATE_ONLY"
+
+    insert_or_update: =>
+        return @set_mode "INSERT_OR_UPDATE"
+
+    delete_before_insert: =>
+        return @set_mode "DELETE_BEFORE_INSERT"
+
+    replace: =>
+        return @set_mode "REPLACE"
+
+    set_primary_key: (key) =>
+        @primary_key = key
+        return @
 
 return BaseEntity
